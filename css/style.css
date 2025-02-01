@@ -1,11 +1,3 @@
-@charset "UTF-8";
-/**
-  *
-  * На основе
-  * css-normalize от Aleksander Lamkov 
-  * https://github.com/aleksanderlamkov/css-normalize
-  *
- */
 :root {
   --container-width: 83.25rem;
   --container-padding-x: 1rem;
@@ -28,7 +20,6 @@
   --font-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans', 'Liberation Sans',
     sans-serif;
 }
-
 h1,
 h2,
 h3,
@@ -39,166 +30,133 @@ h6 {
   font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
 }
-
+:where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]),
 body,
-p,
-:where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]) {
+p {
   margin-block: 0;
 }
-
-body,
-:where(blockquote, figure):where([class]) {
+:where(blockquote, figure):where([class]),
+body {
   margin-inline: 0;
 }
-
-html,
-:has(:target) {
+:has(:target),
+html {
   scroll-behavior: smooth;
 }
-
 img,
-video,
-svg {
+svg,
+video {
   display: block;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 img[loading='lazy'],
-video[loading='lazy'],
-svg[loading='lazy'] {
+svg[loading='lazy'],
+video[loading='lazy'] {
   transition: opacity 0.3s;
 }
-
-html,
-body,
 *,
-*::before,
-*::after {
+:after,
+:before,
+body,
+html {
   box-sizing: border-box;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 h1 {
   font-size: var(--h1-font-size);
 }
-
 h2 {
   font-size: var(--h2-font-size);
 }
-
 h3 {
   font-size: var(--h3-font-size);
 }
-
 h4 {
   font-size: var(--h4-font-size);
 }
-
 h5 {
   font-size: var(--h5-font-size);
 }
-
 h6 {
   font-size: var(--h6-font-size);
 }
-
 p {
   --paragraphMarginBottom: 1em;
 }
 p:where(:not([class]):not(:last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
-
 :where(ul, ol):where([class]) {
   padding-left: 0;
 }
-
 :where(dd[class]) {
   margin-left: 0;
 }
-
 :where(fieldset[class]) {
+  border: none;
   margin-left: 0;
   padding: 0;
-  border: none;
 }
-
 :where(ul[class]) {
   list-style: none;
 }
-
 :where(address[class]) {
   font-style: normal;
 }
-
 svg * {
   transition-property: fill, stroke;
 }
-
 :where([fill]:not([fill='none'], [fill^='url'])) {
   fill: currentColor;
 }
-
 :where([stroke]:not([stroke='none'], [stroke^='url'])) {
   stroke: currentColor;
 }
-
+button,
 input,
-textarea,
 select,
-button {
+textarea {
   font: inherit;
 }
-
 a:where([class]) {
   display: inline-flex;
 }
-
 button,
 label {
   cursor: pointer;
 }
-
 :where(table) {
   border-collapse: collapse;
   border-color: currentColor;
 }
-
 .container {
-  width: 100%;
+  margin-inline: auto;
   max-width: var(--container-width);
   padding-inline: 1rem;
-  margin-inline: auto;
+  width: 100%;
 }
-
 .page {
-  min-height: 100dvh;
   background-color: var(--body-bg-color);
   color: var(--body-text-color);
-  font-family: var(--body-font-family), var(--font-sans-serif);
-  font-weight: var(--body-font-weight);
-  font-size: var(--body-font-size);
-  line-height: var(--body-line-height);
   display: grid;
+  font-family: var(--body-font-family), var(--font-sans-serif);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
   grid-template-rows: auto 1fr auto;
+  line-height: var(--body-line-height);
+  min-height: 100dvh;
 }
-
+.footer,
 .header {
   font-size: clamp(1rem, 1.39vw, 1.25rem);
 }
-
-.footer {
-  font-size: clamp(1rem, 1.39vw, 1.25rem);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  :after,
+  :before {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
-
-/*# sourceMappingURL=style.css.map */
