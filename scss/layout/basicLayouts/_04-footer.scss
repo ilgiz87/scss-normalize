@@ -1,0 +1,9 @@
+@use 'sass:meta';
+@use 'sass:math';
+
+@use '../../abstracts' as *;
+
+//***************  FOOTER  **************/
+.footer {
+  font-size: clamp2(16, 20);
+}

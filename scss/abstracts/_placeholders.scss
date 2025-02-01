@@ -1,0 +1,75 @@
+// Скрываем элемент
+%visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  // Улучшенные стили для фокуса и активности
+  &:not(:focus):not(:active) {
+    position: absolute !important;
+  }
+}
+
+// Отображаем элемент при фокусе или активности
+%visually-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  white-space: normal;
+  clip: auto;
+  overflow: visible;
+}
+
+// Общие стили для всех заголовков
+%heading {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
+}
+
+%margin-block-0 {
+  margin-block: 0;
+}
+
+%margin-inline-0 {
+  margin-inline: 0;
+}
+
+%margin-0 {
+  @extend %margin-block-0;
+  @extend %margin-inline-0;
+}
+
+%min-h100 {
+  min-height: 100%;
+}
+
+// Плавный скролл
+%scroll-behavior {
+  scroll-behavior: smooth;
+}
+
+// Упрощаем работу с изображениями
+%img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  // Поддержка lazy loading
+  &[loading='lazy'] {
+    transition: opacity 0.3s;
+  }
+}
+
+// Нормализация блочной модели
+%border-box {
+  box-sizing: border-box;
+}

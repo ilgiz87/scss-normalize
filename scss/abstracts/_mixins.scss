@@ -1,0 +1,28 @@
+@use 'sass:math';
+@use '../variables';
+@use 'functions';
+
+@mixin grid($columns: 12, $gap: null) {
+  --columnsNumber: #{$columns};
+
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat(var(--columnsNumber), 1fr);
+}
+
+@mixin flex($align: null, $justify: null, $direction: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin abs-center($width: null, $height: null) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $width;
+  height: $height;
+}
