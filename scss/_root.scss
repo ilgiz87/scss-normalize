@@ -8,7 +8,7 @@
 
   --body-text-color: #{variables.$body-text-color};
   --body-bg-color: #{variables.$body-bg-color};
-  --body-font-family: '#{variables.$body-font-family}', var(--font-sans-serif);
+  --body-font-family: '#{variables.$body-font-family}';
   --body-font-weight: #{variables.$body-font-weight};
   --body-font-size: #{functions.toRem(variables.$body-font-size)};
   --body-line-height: #{variables.$body-line-height};
@@ -28,4 +28,5 @@
   --h6-font-size: #{functions.clamp1(variables.$h6-fs-min, variables.$h6-fs-max)};
 
   --font-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', 'Garamond', 'Palatino', 'Noto Serif', serif;
 }

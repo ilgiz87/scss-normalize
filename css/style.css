@@ -1,17 +1,9 @@
-@charset "UTF-8";
-/**
-  *
-  * На основе
-  * css-normalize от Aleksander Lamkov
-  * https://github.com/aleksanderlamkov/css-normalize
-  *
- */
 :root {
   --container-width: 83.25rem;
   --container-padding-x: 1rem;
   --body-text-color: #121212;
   --body-bg-color: #fefefe;
-  --body-font-family: "Onest", var(--font-sans-serif);
+  --body-font-family: "Onest";
   --body-font-weight: 400;
   --body-font-size: 1rem;
   --body-line-height: 1.5;
@@ -26,51 +18,39 @@
   --h5-font-size: clamp(1rem, 0.958rem + 0.19vw, 1.125rem);
   --h6-font-size: 1rem;
   --font-sans-serif: "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+  --font-serif: "Georgia", "Times New Roman", "Garamond", "Palatino", "Noto Serif", serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
 }
 
-body,
-p,
-:where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]) {
+body, p, :where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]) {
   margin-block: 0;
 }
 
-body,
-:where(blockquote, figure):where([class]) {
+body, :where(blockquote, figure):where([class]) {
   margin-inline: 0;
 }
 
-html,
-:has(:target) {
+html, :has(:target) {
   scroll-behavior: smooth;
 }
 
 img,
-video,
-svg {
+video, svg {
   display: block;
   max-width: 100%;
   height: auto;
 }
-img[loading="lazy"],
-video[loading="lazy"],
-svg[loading="lazy"] {
+img[loading=lazy],
+video[loading=lazy], svg[loading=lazy] {
   transition: opacity 0.3s;
 }
 
-html,
-body,
-*,
+html, body, *,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -81,9 +61,9 @@ body,
   *::before,
   *::after {
     -webkit-animation-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
     -webkit-animation-iteration-count: 1 !important;
-    animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
@@ -146,11 +126,11 @@ svg * {
   transition-property: fill, stroke;
 }
 
-:where([fill]:not([fill="none"], [fill^="url"])) {
+:where([fill]:not([fill=none], [fill^=url])) {
   fill: currentColor;
 }
 
-:where([stroke]:not([stroke="none"], [stroke^="url"])) {
+:where([stroke]:not([stroke=none], [stroke^=url])) {
   stroke: currentColor;
 }
 
@@ -186,7 +166,7 @@ label {
   min-height: 100dvh;
   background-color: var(--body-bg-color);
   color: var(--body-text-color);
-  font-family: var(--body-font-family), var(--font-sans-serif);
+  font-family: var(--body-font-family), "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
   font-weight: var(--body-font-weight);
   font-size: var(--body-font-size);
   line-height: var(--body-line-height);
@@ -200,4 +180,4 @@ label {
 
 .footer {
   font-size: clamp(1rem, 1.39vw, 1.25rem);
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

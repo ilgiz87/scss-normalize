@@ -7,6 +7,10 @@ $BASE_FONT_SIZE: 16;
 $VIEWPORT-MAX: 1440;
 $VIEWPORT-MIN: 360;
 
+$font-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', sans-serif;
+$font-serif: 'Georgia', 'Times New Roman', 'Garamond', 'Palatino', 'Noto Serif', serif;
+
+
 // Размер контейнера
 $container-width: 1300;
 $container-padding-x: 16;
@@ -15,6 +19,8 @@ $container-padding-x: 16;
 $body-text-color: #121212;
 $body-bg-color: #fefefe;
 $body-font-family: 'Onest';
+
+
 $body-font-size: $BASE_FONT_SIZE; //16px
 $body-font-weight: 400;
 $body-line-height: 1.5;
