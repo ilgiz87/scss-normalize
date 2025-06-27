@@ -83,7 +83,7 @@
   "scss.format.newlineBetweenRules": true,
 
   // HTML специфичные настройки
-  "html.format.wrapAttributes": "force-aligned",
+  "html.format.wrapAttributes": "auto",
   "html.format.wrapLineLength": 120,
   "html.format.indentInnerHtml": true,
   "html.format.maxPreserveNewLines": 2,
@@ -95,6 +95,7 @@
   "html.format.indentHandlebars": false,
   "html.format.templating": false,
   "html.format.enable": true,
+  "html.format.singleAttributePerLine": false,
 
   // Общие настройки редактора
   "editor.defaultFormatter": "esbenp.prettier-vscode",
