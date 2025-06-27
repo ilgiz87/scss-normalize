@@ -1,22 +1,20 @@
-@use 'sass:math';
-@use 'variables';
-@use 'abstracts/functions';
+@use "sass:math";
+@use "variables";
+@use "abstracts/functions";
 
 :root {
-  --container-width: #{functions.toRem(
-      variables.$container-width + variables.$container-padding-x * 2
-    )};
+  --container-width: #{functions.toRem(variables.$container-width + variables.$container-padding-x * 2)};
   --container-padding-x: #{functions.toRem(variables.$container-padding-x)};
 
   --body-text-color: #{variables.$body-text-color};
   --body-bg-color: #{variables.$body-bg-color};
-  --body-font-family: '#{variables.$body-font-family}';
+  --body-font-family: "#{variables.$body-font-family}", var(--font-sans-serif);
   --body-font-weight: #{variables.$body-font-weight};
   --body-font-size: #{functions.toRem(variables.$body-font-size)};
   --body-line-height: #{variables.$body-line-height};
 
   // Общие стили для всех заголовков
-  --heading-font-family: '#{variables.$heading-font-family}';
+  --heading-font-family: "#{variables.$heading-font-family}";
   --heading-font-weight: #{variables.$heading-font-weight};
   --heading-line-height: #{variables.$heading-line-height};
   --heading-margin-bottom: #{variables.$heading-margin-bottom};
@@ -29,6 +27,5 @@
   --h5-font-size: #{functions.clamp1(variables.$h5-fs-min, variables.$h5-fs-max)};
   --h6-font-size: #{functions.clamp1(variables.$h6-fs-min, variables.$h6-fs-max)};
 
-  --font-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans',
-    'Liberation Sans', sans-serif;
+  --font-sans-serif: "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
 }

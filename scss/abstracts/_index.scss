@@ -1,5 +1,6 @@
 // Abstracts - все абстракции, переменные, функции, миксины и плейсхолдеры
-@forward 'variables';
-@forward 'functions';
-@forward 'mixins';
-@forward 'placeholders';
+
+@forward "../variables";
+@forward "functions";
+@forward "mixins";
+@forward "placeholders";
