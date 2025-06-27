@@ -13,11 +13,12 @@
 
 // Округление
 @function rounding($value, $exp: 100) {
-  @return math.div(math.round($value * $exp), $exp); // Используем math.round для точности
+  @return math.div(
+    math.round($value * $exp),
+    $exp
+  ); // Используем math.round для точности
 }
-@function rounding($value, $exp: 100) {
-  @return math.div(math.round($value * $exp), $exp);
-}
+
 // Преобразование PX в REM
 @function toRem($pixel) {
   @if math.is-unitless($pixel) {
@@ -29,11 +30,16 @@
 
 @function clamp1($min, $max) {
   @if $min == $max {
-    @return toRem($max); // Если минимальное значение равно максимальному, возвращаем единицу в rem
+    @return toRem(
+      $max
+    ); // Если минимальное значение равно максимальному, возвращаем единицу в rem
   }
 
   // Вычисляем коэффициент для масштаба
-  $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
+  $slope: math.div(
+    $max - $min,
+    variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN
+  );
   $yAxisIntersection: math.div(
     -(variables.$VIEWPORT-MIN) * $slope + $min,
     variables.$BASE_FONT_SIZE
@@ -43,7 +49,9 @@
   $clampMin: toRem($min);
   $clampMax: toRem($max);
   $clampVal: calc(
-    #{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw
+    #{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding(
+        $slope * 100
+      )}vw
   );
 
   @return clamp($clampMin, $clampVal, $clampMax);
@@ -51,11 +59,15 @@
 
 @function clamp2($min, $max) {
   @if $min == $max {
-    @return toRem($max); // Если минимальное значение равно максимальному, возвращаем единицу в rem
+    @return toRem(
+      $max
+    ); // Если минимальное значение равно максимальному, возвращаем единицу в rem
   }
   // Возвращаем результат с использованием clamp
   $clampMin: toRem($min);
-  $clampVal: calc(math.div(strip-units($max), strip-units(variables.$VIEWPORT-MAX)) * 100);
+  $clampVal: calc(
+    math.div(strip-units($max), strip-units(variables.$VIEWPORT-MAX)) * 100
+  );
   $clampMax: toRem($max);
 
   @return clamp($clampMin, #{rounding($clampVal)}vw, $clampMax);
