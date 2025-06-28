@@ -7,7 +7,6 @@
     "/path/to/joomla/libraries",
     "/path/to/joomla/components"
   ],
-  "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "files.associations": {
@@ -24,7 +23,7 @@
     {
       "format": "expanded",
       "extensionName": ".css",
-      "savePath": "/css"
+      "savePath": "~/styles"
     }
   ],
   "liveSassCompile.settings.generateMap": true,
@@ -34,7 +33,6 @@
   // HTML форматирование
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features",
-    "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
@@ -42,7 +40,6 @@
   // CSS форматирование
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
@@ -50,7 +47,6 @@
   // SCSS форматирование
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
@@ -58,9 +54,13 @@
   // JavaScript форматирование
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
     "editor.tabSize": 2,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.trimAutoWhitespace": true,
+    "editor.trimTrailingWhitespace": true,
+    "editor.insertFinalNewline": true,
+    "editor.keepWhitespace": false
   },
 
   // Prettier настройки
@@ -99,7 +99,6 @@
 
   // Общие настройки редактора
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },

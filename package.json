@@ -2,18 +2,16 @@
   "name": "scss-normalize",
   "version": "1.0.1",
   "description": "Modern SCSS starter kit with normalize styles, responsive utilities, and build automation",
-  "main": "scss/style.scss",
+  "main": "styles/main.scss",
   "scripts": {
-    "compile": "echo 'Компиляция SCSS в CSS' && sass scss:css --no-source-map",
-    "watch:compile": "echo 'Отслеживание изменений в SCSS и компиляция в CSS' && sass --watch scss:css ",
-    "combine-media": "echo 'Объединение медиазапросов без минификации' && postcss css/*.css --no-map --use postcss-combine-media-query -d css",
-    "minify": "echo 'Объединение медиазапросов и минификация CSS' && postcss css/*.css --no-map --use postcss-combine-media-query cssnano -d css",
+    "compile": "echo '🔄 Компиляция SCSS в CSS' && sass styles:styles --no-source-map",
+    "watch:compile": "echo '👀 Отслеживание изменений в SCSS и компиляция в CSS' && sass --watch styles:styles",
+    "combine-media": "echo '📱 Объединение медиазапросов без минификации' && postcss styles/*.css --no-map --use postcss-combine-media-query -d styles",
+    "minify": "echo '⚡ Объединение медиазапросов и минификация CSS' && postcss styles/*.css --no-map --use postcss-combine-media-query cssnano -d styles",
     "watch": "npm-run-all --parallel watch:compile",
     "build": "npm-run-all compile combine-media minify",
-    "dev": "npm run watch",
-    "start": "npm run compile",
-    "clean": "echo 'Очистка скомпилированных файлов' && rm -rf css/*.css",
-    "lint": "echo 'Проверка SCSS файлов' && sass --check scss/"
+    "clean": "echo 'Очистка скомпилированных файлов' && rm -rf styles/*.css",
+    "lint": "echo 'Проверка SCSS файлов' && sass --check styles/"
   },
   "repository": {
     "type": "git",

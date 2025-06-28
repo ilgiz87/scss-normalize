@@ -1,0 +1,21 @@
+// *
+// * На основе
+// * css-normalize от Aleksander Lamkov
+// * https://github.com/aleksanderlamkov/css-normalize
+// *
+
+@use './scss/root';
+@use './scss/abstracts/normalize';
+
+@use './scss/components/buttons';
+@use './scss/components/utils';
+
+@use './scss/layout/basicLayouts/01-page' as page;
+@use './scss/layout/basicLayouts/02-header' as header;
+@use './scss/layout/basicLayouts/03-main' as main;
+@use './scss/layout/basicLayouts/04-footer' as footer;
+
+// Файл для эксперементов и костылей
+@use './scss/shame';
+
+
