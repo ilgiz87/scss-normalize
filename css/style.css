@@ -1,162 +1,181 @@
 :root {
   --container-width: 83.25rem;
   --container-padding-x: 1rem;
-  --body-text-color: #121212;
-  --body-bg-color: #fefefe;
-  --body-font-family: 'Onest';
+  --body-text-color: #050f27;
+  --body-bg-color: #fff;
+  --body-font-family: "Satoshi";
   --body-font-weight: 400;
-  --body-font-size: 1rem;
+  --body-font-size: 1.5rem;
   --body-line-height: 1.5;
-  --heading-font-family: 'Druk-Cyr';
-  --heading-font-weight: 900;
-  --heading-line-height: 1.2;
+  --heading-font-weight: 700;
+  --heading-line-height: 1.02;
   --heading-margin-bottom: 0.8em;
-  --h1-font-size: clamp(2.25rem, 2rem + 1.11vw, 3rem);
-  --h2-font-size: clamp(1.75rem, 1.583rem + 0.74vw, 2.25rem);
-  --h3-font-size: clamp(1.125rem, 1rem + 0.56vw, 1.5rem);
-  --h4-font-size: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
-  --h5-font-size: clamp(1rem, 0.958rem + 0.19vw, 1.125rem);
-  --h6-font-size: 1rem;
-  --font-sans-serif: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Noto Sans', 'Liberation Sans',
-    sans-serif;
+  --h1-font-size: clamp(8.5rem, 8.269rem + 1.03vw, 9.5rem);
+  --h2-font-size: clamp(8rem, 7.942rem + 0.26vw, 8.25rem);
+  --h3-font-size: clamp(4rem, 3.885rem + 0.51vw, 4.5rem);
+  --h4-font-size: clamp(3.625rem, 3.538rem + 0.38vw, 4rem);
+  --h5-font-size: clamp(1.5rem, 1.385rem + 0.51vw, 2rem);
+  --h6-font-size: 1.5rem;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--heading-font-family);
+
+h1, h2, h3, h4, h5, h6 {
   font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
+  margin-bottom: var(--heading-margin-bottom);
 }
-:where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]),
-body,
-p {
+
+body, p, :where(p, h1, h2, h3, h4, h5, h6, ul, ol, dl, blockquote, figure):where([class]) {
   margin-block: 0;
 }
-:where(blockquote, figure):where([class]),
-body {
+
+body, :where(blockquote, figure):where([class]) {
   margin-inline: 0;
 }
-:has(:target),
-html {
+
+html, :has(:target) {
   scroll-behavior: smooth;
 }
+
 img,
-svg,
-video {
+video, svg {
   display: block;
-  height: auto;
   max-width: 100%;
+  height: auto;
 }
-img[loading='lazy'],
-svg[loading='lazy'],
-video[loading='lazy'] {
+img[loading=lazy],
+video[loading=lazy], svg[loading=lazy] {
   transition: opacity 0.3s;
 }
-*,
-:after,
-:before,
-body,
-html {
+
+html, body, *,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 h1 {
   font-size: var(--h1-font-size);
 }
+
 h2 {
   font-size: var(--h2-font-size);
 }
+
 h3 {
   font-size: var(--h3-font-size);
 }
+
 h4 {
   font-size: var(--h4-font-size);
 }
+
 h5 {
   font-size: var(--h5-font-size);
 }
+
 h6 {
   font-size: var(--h6-font-size);
 }
+
 p {
   --paragraphMarginBottom: 1em;
 }
-p:where(:not([class]):not(:last-child)) {
+
+:where(p:not([class]):not(:last-child)) {
   margin-bottom: var(--paragraphMarginBottom);
 }
+
 :where(ul, ol):where([class]) {
   padding-left: 0;
 }
+
 :where(dd[class]) {
   margin-left: 0;
 }
+
 :where(fieldset[class]) {
-  border: none;
   margin-left: 0;
   padding: 0;
+  border: none;
 }
+
 :where(ul[class]) {
   list-style: none;
 }
+
 :where(address[class]) {
   font-style: normal;
 }
+
 svg * {
   transition-property: fill, stroke;
 }
-:where([fill]:not([fill='none'], [fill^='url'])) {
+
+:where([fill]:not([fill=none], [fill^=url])) {
   fill: currentColor;
 }
-:where([stroke]:not([stroke='none'], [stroke^='url'])) {
+
+:where([stroke]:not([stroke=none], [stroke^=url])) {
   stroke: currentColor;
 }
-button,
+
 input,
+textarea,
 select,
-textarea {
+button {
   font: inherit;
 }
+
 a:where([class]) {
   display: inline-flex;
 }
+
 button,
 label {
   cursor: pointer;
 }
+
 :where(table) {
   border-collapse: collapse;
   border-color: currentColor;
 }
+
 .container {
-  margin-inline: auto;
-  max-width: var(--container-width);
-  padding-inline: 1rem;
   width: 100%;
+  max-width: var(--container-width);
+  padding-inline: var(--container-padding-x);
+  margin-inline: auto;
 }
+
 .page {
+  min-height: 100dvh;
   background-color: var(--body-bg-color);
   color: var(--body-text-color);
-  display: grid;
-  font-family: var(--body-font-family), var(--font-sans-serif);
-  font-size: var(--body-font-size);
+  font-family: var(--body-font-family), "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
   font-weight: var(--body-font-weight);
-  grid-template-rows: auto 1fr auto;
+  font-size: var(--body-font-size);
   line-height: var(--body-line-height);
-  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
-.footer,
+
 .header {
-  font-size: clamp(1rem, 1.39vw, 1.25rem);
+  font-size: clamp(1rem, 1.04vw, 1.25rem);
 }
-@media (prefers-reduced-motion: reduce) {
-  *,
-  :after,
-  :before {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+
+.footer {
+  font-size: clamp(1rem, 1.04vw, 1.25rem);
+}/*# sourceMappingURL=style.css.map */

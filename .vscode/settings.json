@@ -9,19 +9,16 @@
   ],
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
+  "editor.insertSpaces": true,
   "files.associations": {
     "*.html": "html",
+    "*.css": "css",
     "*.scss": "scss",
-    "*.js": "javascript",
-    "*.php": "php"
+    "*.js": "javascript"
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact",
-    "vue-html": "html",
-    "razor": "html",
-    "plaintext": "pug",
-    "scss": "css",
-    "php": "html"
+    "scss": "css"
   },
   "liveSassCompile.settings.formats": [
     {
@@ -31,12 +28,85 @@
     }
   ],
   "liveSassCompile.settings.generateMap": true,
-  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 1 versions"],
   "eslint.validate": ["javascript", "javascriptreact", "html"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // "editor.formatOnSave": true,      
+
+  // HTML форматирование
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  // CSS форматирование
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  // SCSS форматирование
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  // JavaScript форматирование
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  // Prettier настройки
   "prettier.singleQuote": true,
   "prettier.semi": true,
   "prettier.tabWidth": 2,
-  "prettier.useTabs": false
+  "prettier.useTabs": false,
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.printWidth": 120,
+  "prettier.bracketSameLine": false,
+  "prettier.arrowParens": "avoid",
+  "prettier.endOfLine": "lf",
+
+  // SCSS Formatter настройки для одинарных кавычек
+  "scss.format.quotes": "single",
+  "scss.format.insertSpaces": true,
+  "scss.format.tabSize": 2,
+  "scss.format.convert": true,
+  "scss.format.newlineBetweenSelectors": true,
+  "scss.format.newlineBetweenRules": true,
+
+  // HTML специфичные настройки
+  "html.format.wrapAttributes": "auto",
+  "html.format.wrapLineLength": 120,
+  "html.format.indentInnerHtml": true,
+  "html.format.maxPreserveNewLines": 2,
+  "html.format.preserveNewLines": true,
+  "html.format.unformatted": "code, pre, textarea, script, style",
+  "html.format.contentUnformatted": "pre, textarea",
+  "html.format.extraLiners": "head, body, /html",
+  "html.format.unformattedContentDelimiter": "",
+  "html.format.indentHandlebars": false,
+  "html.format.templating": false,
+  "html.format.enable": true,
+  "html.format.singleAttributePerLine": false,
+
+  // Общие настройки редактора
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.rulers": [120, 160],
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 120,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true
 }

@@ -1,7 +1,10 @@
 @use 'sass:meta';
 @use 'sass:math';
 
-@use '../../abstracts' as *;
+@use '../../variables' as *;
+@use '../../abstracts/functions' as *;
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/placeholders' as *;
 
 //****************  PAGE  ****************/
 .page {
@@ -9,7 +12,7 @@
   min-height: 100dvh;
   background-color: var(--body-bg-color);
   color: var(--body-text-color);
-  font-family: var(--body-font-family), var(--font-sans-serif);
+  font-family: var(--body-font-family), $font-sans-serif;
   font-weight: var(--body-font-weight);
   font-size: var(--body-font-size);
   line-height: var(--body-line-height);

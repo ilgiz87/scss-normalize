@@ -1,6 +1,6 @@
-@use 'sass:math';
-@use '../variables';
-@use 'functions';
+@use "sass:math";
+@use "../variables";
+@use "functions";
 
 @mixin grid($columns: 12, $gap: null) {
   --columnsNumber: #{$columns};
@@ -25,4 +25,26 @@
   transform: translate(-50%, -50%);
   width: $width;
   height: $height;
+}
+
+// Миксин для flexbox центрирования
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Миксин для hover эффектов
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
 }

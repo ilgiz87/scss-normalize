@@ -1,3 +1,4 @@
+
 // Скрываем элемент
 %visually-hidden {
   position: absolute;
@@ -27,13 +28,6 @@
   white-space: normal;
   clip: auto;
   overflow: visible;
-}
-
-// Общие стили для всех заголовков
-%heading {
-  font-family: var(--heading-font-family);
-  font-weight: var(--heading-font-weight);
-  line-height: var(--heading-line-height);
 }
 
 %margin-block-0 {

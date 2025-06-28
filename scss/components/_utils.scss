@@ -1,8 +1,13 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .container {
   width: 100%;
   max-width: var(--container-width);
- padding-inline: toRem($container-padding-x);
+  padding-inline: var(--container-padding-x);
   margin-inline: auto;
+}
+
+.section {
+  padding-block: 2rem;
+
 }

@@ -1,15 +1,19 @@
 {
   "name": "scss-normalize",
-  "version": "1.0.0",
-  "description": "Normalize SCSS",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "Modern SCSS starter kit with normalize styles, responsive utilities, and build automation",
+  "main": "scss/style.scss",
   "scripts": {
-    "sass": "echo 'Компиляция SCSS в CSS' && sass scss:css --no-source-map",
-    "watch:sass": "echo 'Отслеживание изменений в SCSS и компиляция в CSS' && sass --watch scss:css --no-source-map",
-    "combine-media-query": "echo 'Объединение медиазапросов без минификации' && postcss css/*.css --no-map --use postcss-combine-media-query -d css",
-    "build:css": "echo 'Объединение медиазапросов и минификация CSS' && postcss css/*.css --no-map --use postcss-combine-media-query cssnano -d css",
-    "watch": "npm-run-all --parallel watch:sass",
-    "build": "npm-run-all sass combine-media-query build:css"
+    "compile": "echo 'Компиляция SCSS в CSS' && sass scss:css --no-source-map",
+    "watch:compile": "echo 'Отслеживание изменений в SCSS и компиляция в CSS' && sass --watch scss:css ",
+    "combine-media": "echo 'Объединение медиазапросов без минификации' && postcss css/*.css --no-map --use postcss-combine-media-query -d css",
+    "minify": "echo 'Объединение медиазапросов и минификация CSS' && postcss css/*.css --no-map --use postcss-combine-media-query cssnano -d css",
+    "watch": "npm-run-all --parallel watch:compile",
+    "build": "npm-run-all compile combine-media minify",
+    "dev": "npm run watch",
+    "start": "npm run compile",
+    "clean": "echo 'Очистка скомпилированных файлов' && rm -rf css/*.css",
+    "lint": "echo 'Проверка SCSS файлов' && sass --check scss/"
   },
   "repository": {
     "type": "git",
@@ -18,14 +22,24 @@
   "homepage": "https://github.com/ilgiz87/scss-normalize#readme",
   "keywords": [
     "scss",
+    "sass",
     "css",
     "normalize",
-    "reset"
+    "reset",
+    "responsive",
+    "utility",
+    "starter-kit",
+    "frontend",
+    "web-development"
   ],
   "author": "ILGIZ KHUZHAHMETOV",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ilgiz87/scss-normalize/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
   },
   "devDependencies": {
     "cssnano": "^7.0.6",
