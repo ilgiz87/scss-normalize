@@ -1,5 +1,6 @@
-# 🎨 SCSS Normalize Starter Kit
+# 🎨 SCSS Normalize 
 
+*Основано на css-normalize от [Александра Ламкова](https://github.com/aleksanderlamkov)*
 
 ## 🚀 Особенности
 
@@ -11,6 +12,7 @@
 
 
 # Установка зависимостей
+```bash
 npm install
 ```
 

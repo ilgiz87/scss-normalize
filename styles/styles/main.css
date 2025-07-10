@@ -17,10 +17,6 @@ body, :where(blockquote, figure):where([class]) {
   margin-inline: 0;
 }
 
-html, :has(:target) {
-  scroll-behavior: smooth;
-}
-
 img,
 video, svg {
   display: block;
@@ -32,12 +28,11 @@ video[loading=lazy], svg[loading=lazy] {
   transition: opacity 0.3s;
 }
 
-html, body, *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -51,12 +46,16 @@ html, body, *,
   }
 }
 
-/* Упрощенная нормализация параграфов */
-:where(p:not([class]):not(:last-child)) {
+html {
+  scroll-behavior: smooth;
+}
+
+p:not([class]):not(:last-child) {
   margin-bottom: 1em;
 }
 
-:where(ul, ol):where([class]) {
+ul[class],
+ol[class] {
   padding-left: 0;
 }
 
@@ -78,13 +77,15 @@ html, body, *,
   font-style: normal;
 }
 
-/* Убрал SVG transition - может замедлять рендеринг */
+svg * {
+  transition-property: fill, stroke;
+}
 
-:where([fill]:not([fill=none], [fill^=url])) {
+[fill]:not([fill=none], [fill^=url]) {
   fill: currentColor;
 }
 
-:where([stroke]:not([stroke=none], [stroke^=url])) {
+[stroke]:not([stroke=none], [stroke^=url]) {
   stroke: currentColor;
 }
 
@@ -95,7 +96,7 @@ button {
   font: inherit;
 }
 
-a:where([class]) {
+a[class] {
   display: inline-flex;
 }
 
@@ -104,7 +105,7 @@ label {
   cursor: pointer;
 }
 
-:where(table) {
+table {
   border-collapse: collapse;
   border-color: currentColor;
 }

@@ -2,21 +2,11 @@
 @use '../variables';
 @use 'functions';
 
-html {
-  @extend %scroll-behavior;
-  @extend %border-box;
-}
-
-body {
-  @extend %margin-block-0;
-  @extend %margin-inline-0;
-  @extend %border-box;
-}
-
+// Нормализация блочной модели
 *,
 *::before,
 *::after {
-  @extend %border-box;
+  box-sizing: border-box;
 
   @media (prefers-reduced-motion: reduce) {
     // Удаляем все анимации и переходы для людей,
@@ -28,28 +18,36 @@ body {
   }
 }
 
+// Плавный скролл
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @extend %margin-block-0;
+  @extend %margin-inline-0;
+}
+
 // Обнуляем вертикальные внешние отступы параграфа,
 // объявляем локальную переменную для внешнего отступа вниз,
 // чтобы избежать взаимодействие с более сложным селектором
 p {
-  --paragraphMarginBottom: 1em;
-
   @extend %margin-block-0;
-}
-// Внешний отступ вниз для параграфа без атрибута class,
-// который расположен не последним среди своих соседних элементов
-:where(p:not([class]):not(:last-child)) {
-  margin-bottom: var(--paragraphMarginBottom);
+
+  &:not([class]):not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
 
 // Убираем внутренние отступы слева тегам списков,
 // у которых есть атрибут class
-:where(ul, ol):where([class]) {
+ul[class],
+ol[class] {
   padding-left: 0;
 }
 
 // Убираем внешние отступы тегам у которых есть атрибут class
-:where(blockquote, figure):where([class]) {
+:where(blockquote, figure, fieldset):where([class]) {
   @extend %margin-block-0;
   @extend %margin-inline-0;
 }
@@ -61,11 +59,11 @@ p {
 }
 
 :where(dd[class]) {
-  margin-left: 0;
+  @extend %margin-inline-0;
 }
 
 :where(fieldset[class]) {
-  margin-left: 0;
+
   padding: 0;
   border: none;
 }
@@ -98,14 +96,14 @@ svg {
 // Приводим к единому цвету svg-элементы
 // (за исключением тех, у которых уже указан
 // атрибут fill со значением 'none' или начинается с 'url')
-:where([fill]:not([fill='none'], [fill^='url'])) {
+[fill]:not([fill='none'], [fill^='url']) {
   fill: currentColor;
 }
 
 // Приводим к единому цвету svg-элементы
 // (за исключением тех, у которых уже указан
 // атрибут stroke со значением 'none')
-:where([stroke]:not([stroke='none'], [stroke^='url'])) {
+[stroke]:not([stroke='none'], [stroke^='url']) {
   stroke: currentColor;
 }
 
@@ -118,7 +116,7 @@ button {
 }
 
 // Нормализация высоты элемента ссылки при его инспектировании в DevTools
-a:where([class]) {
+a[class] {
   display: inline-flex;
 }
 
@@ -129,12 +127,7 @@ label {
 }
 
 // Приведение рамок таблиц в классический 'collapse' вид
-:where(table) {
+table {
   border-collapse: collapse;
   border-color: currentColor;
-}
-
-// Плавный скролл
-:has(:target) {
-  @extend %scroll-behavior;
 }
